@@ -25,16 +25,16 @@ choose_insect_btns.forEach((btn) => {
 });
 
 function startGame() {
-    setInterval(increaseTime, 1000)
+  setInterval(increaseTime, 1000);
 }
 
-function increaseTime(){
-    let m = Math.floor(seconds / 60)
-    let s = seconds % 60
-    m = m < 10 ? `0${m}`: m
-    s = s < 10 ? `0${s}`: s
-    timeEl.innerHTML = `Time: ${m}:${s}`
-    seconds++
+function increaseTime() {
+  let m = Math.floor(seconds / 60);
+  let s = seconds % 60;
+  m = m < 10 ? `0${m}` : m;
+  s = s < 10 ? `0${s}` : s;
+  timeEl.innerHTML = `Time: ${m}:${s}`;
+  seconds++;
 }
 
 function createInsect() {
@@ -43,11 +43,13 @@ function createInsect() {
   const { x, y } = getRandomLocation();
   insect.style.top = `${y}px`;
   insect.style.left = `${x}px`;
-  
-  insect.innerHTML = `<img src="${selected_insect.src}" alt="${selected_insect.alt}" style="transform: rotate(${Math.random() * 360}deg)" />`
 
-  insect.addEventListener('click', catchInsect)
-  game_container.appendChild(insect)
+  insect.innerHTML = `<img src="${selected_insect.src}" alt="${
+    selected_insect.alt
+  }" style="transform: rotate(${Math.random() * 360}deg)" />`;
+
+  insect.addEventListener("click", catchInsect);
+  game_container.appendChild(insect);
 }
 
 function getRandomLocation() {
@@ -58,22 +60,22 @@ function getRandomLocation() {
   return { x, y };
 }
 
-function catchInsect(){
-    increaseScore()
-    this.classList.add('caught')
-    setTimeout(() => this.remove(), 2000)
-    addInsects()
+function catchInsect() {
+  increaseScore();
+  this.classList.add("caught");
+  setTimeout(() => this.remove(), 2000);
+  addInsects();
 }
 
-function addInsects(){
-    setTimeout(createInsect, 1000)
-    setTimeout(createInsect, 1500)
+function addInsects() {
+  setTimeout(createInsect, 1000);
+  setTimeout(createInsect, 1500);
 }
 
-function increaseScore(){
-    score++
-    if(score > 19){
-        message.classList.add('visible')
-    }
-    scoreEl.innerHTML = `Score: ${score}`
+function increaseScore() {
+  score++;
+  if (score > 19) {
+    message.classList.add("visible");
+  }
+  scoreEl.innerHTML = `Score: ${score}`;
 }
