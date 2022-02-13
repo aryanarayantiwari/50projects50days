@@ -137,7 +137,7 @@ const data = [
   },
   {
     name: "Github Profiles",
-    href: "Day 28 - GitHub Profiles",
+    href: "Day 28 - Github Profiles",
     image: "images/28.png",
   },
   {
